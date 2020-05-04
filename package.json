@@ -1,0 +1,15 @@
+{
+  "manver" : "1",
+  "project" : "ktransw-macros",
+  "description" : "Useful macro functions for usage in karel",
+  "version" : "0.0.1",
+  "license" : "Apache 2.0",
+  "author" : "kobbled",
+  "source" : [
+  ],
+  "includes" : [
+    "include"
+  ],
+  "depends" : [
+  ]
+}
