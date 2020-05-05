@@ -29,10 +29,14 @@
 %define t_arr2d(y,x,n,t) `TYPE
   #3_0 = ARRAY[x] OF #4
   #3_1 = ARRAY[y] OF #3_0`
+%define t_arr2d_ref(y,x,n,t,c) `TYPE
+  #3_0 FROM #5 = ARRAY[x] OF #4
+  #3_1 FROM #5 = ARRAY[y] OF #3_0`
 %define t_arr3d(z,y,x,n,t) `TYPE
   #4_0 = ARRAY[x] OF #5
   #4_1 = ARRAY[y] OF #4_0
   #4_2 = ARRAY[z] OF #4_1`
+
 %define arrx(n) %eval #1_0
 %define arry(n) %eval #1_1
 %define arrz(n) %eval #1_2
