@@ -11,15 +11,9 @@
 
 --  *** 2d array type macro ***
 -- declare type above header with:
--- 
 -- 't_arr2d(5,10,rarr,REAL)'
---
--- this will create a type for a 5X10
--- REAL matrix called 'rarr'.
---
--- This type can get declared to a variable
--- with arrx(rarr), for a row slice, and 
--- arry(rarr), for a full 2d array.
+-- creates a 5 x 10 REAL 2d array
+-- variables should be subsequently declared as:
 -- VAR
 --   rows    : arrx(rarr)
 --   a_2d    : arry(rarr)
@@ -41,5 +35,19 @@
 %define arry(n) %eval #1_1
 %define arrz(n) %eval #1_2
 %mode pop
+
+
+-- declare hash type of variable type
+-- can use any type, preferably a STRUCTURE
+-- eg. t_hash(hashstring,INTEGER,hashClass)
+%mode push
+%mode string QQQ "`" "`" "\\"
+%define t_hash(n,t,c) `TYPE
+	n FROM c = STRUCTURE
+		key     : STRING[16]
+		val     : t
+	ENDSTRUCTURE`
+%mode pop
+
 
 %endif -- DEF_TYPE_M
