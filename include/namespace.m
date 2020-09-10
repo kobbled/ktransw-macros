@@ -1,3 +1,6 @@
+%ifndef NAMESPACE_M
+%define NAMESPACE_M
+
 %include standard.m
 
 -- define actual function name output to karel 
@@ -23,3 +26,5 @@
 %define declare_member(nme,fnc,anme,afnc) SILENT(%mode push)SILENT(%mode nostring "`")SILENT(getobject(anme,afnc))SILENT(getalias(nme,fnc,anme,afnc))ASIS(%defeval TEMP4 `%define alias func`)ASIS(%defeval TEMP5 `%define fnc objt`)SILENT(%mode pop)$TEMP4
 TEMP5$
 %mode pop
+
+%endif -- NAMESPACE_M
