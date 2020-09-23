@@ -5,7 +5,6 @@
 
 %mode push
 %mode string QQQ "`" "`" "\\"
-%define def2d(n,r,c) SILENT(`%defeval type_name n` `%defeval t_rows r` `%defeval t_columns c`)
 %define check2d `%ifndef type_name` `%error "type_name is not defined before define_type in "%file` `%endif` `%ifndef t_rows || t_columns` `%error "rows and columns must be defined before type declaration in "%file` `%endif`
 %mode pop
 
@@ -23,9 +22,9 @@
 %define t_arr2d(y,x,n,t) `TYPE
   #3_0 = ARRAY[x] OF #4
   #3_1 = ARRAY[y] OF #3_0`
-%define t_arr2d_ref(y,x,n,t,c) `TYPE
-  #3_0 FROM #5 = ARRAY[x] OF #4
-  #3_1 FROM #5 = ARRAY[y] OF #3_0`
+%define t_arr2d_ref(y,x,n,t) `TYPE
+  #3_0 FROM #3 = ARRAY[x] OF #4
+  #3_1 FROM #3 = ARRAY[y] OF #3_0`
 %define t_arr3d(z,y,x,n,t) `TYPE
   #4_0 = ARRAY[x] OF #5
   #4_1 = ARRAY[y] OF #4_0
