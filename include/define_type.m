@@ -48,5 +48,9 @@
 	ENDSTRUCTURE`
 %mode pop
 
+-- path type declaration
+%define call_path_type(head_type,node_type) SILENT(%ifneq (head_type) ())SILENT(%define h pathheader = head_type,)SILENT(%else)SILENT(%define h)SILENT(%endif)ASIS(PATH h nodedata = node_type)
+
+
 
 %endif -- DEF_TYPE_M
