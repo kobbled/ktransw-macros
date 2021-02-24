@@ -41,9 +41,12 @@
 -- eg. t_hash(hashstring,INTEGER,hashClass)
 %mode push
 %mode string QQQ "`" "`" "\\"
+%ifndef HSH_KEY_SIZE
+%define HSH_KEY_SIZE 12
+%endif
 %define t_hash(n,t,c) `TYPE
 	n FROM c = STRUCTURE
-		key     : STRING[16]
+		key     : STRING[HSH_KEY_SIZE]
 		val     : t
 	ENDSTRUCTURE`
 %mode pop
