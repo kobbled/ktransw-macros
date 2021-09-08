@@ -55,5 +55,16 @@
 %define call_path_type(head_type,node_type) SILENT(%ifneq (head_type) ())SILENT(%define h pathheader = head_type,)SILENT(%else)SILENT(%define h)SILENT(%endif)ASIS(PATH h nodedata = node_type)
 
 
+--define a struct for a class object
+%mode push
+%mode string QQQ "`" "`" "\\"
+%define define_type_class(name,parent,members) `TYPE
+  name FROM parent = STRUCTURE
+    members
+  ENDSTRUCTURE
+`
+%mode pop
+
+%define concat #1 #2
 
 %endif -- DEF_TYPE_M
